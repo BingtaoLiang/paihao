@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neo.scan.mapper.UserMapper">
+    <insert id="insert" parameterType="com.neo.scan.model.User" useGeneratedKeys="true" keyProperty="id">
+        insert into user (username, userAge, userSex, userPhone)
+        values (#{username}, #{userAge}, #{userSex}, #{userPhone})
+
+    </insert>
+
+    <select id="findUser" resultType="com.neo.scan.model.User" parameterType="com.neo.scan.model.User">
+        select *
+        from user
+        where username = #{username}
+          and userAge = #{userAge}
+          and userSex = #{userSex}
+    </select>
+</mapper>

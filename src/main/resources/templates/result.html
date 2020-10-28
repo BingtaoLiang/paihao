@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <title>填写个人信息获取就诊号</title>
+    <meta name="viewport" http-equiv="Content-Type"
+          content="text/html; charset=UTF-8;width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+<!--    <link rel="stylesheet" href="/css/zhiyuan.css">-->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/ie-emulation-modes-warning.js"></script>
+</head>
+<style>
+    th {text-align: center;}
+    table {width: 800px;margin: 0 auto;font-size: 20px}
+</style>
+<body style="background-color: #f5f4f8">
+<div style="height: 100px;margin-top: 20px">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ">
+        <div class="jumbotron"style="background: none">
+            <h1 style="text-align: center;color: ghostwhite">就诊排号系统</h1>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+    <div style="height: 650px;width: 60%;margin-left: 20%;">
+        <div style="text-align: center;margin-top: 20px">
+            <table class="table table-bordered">
+               <tr>
+                   <th>姓名</th>
+                   <td th:text="${username}"></td>
+               </tr>
+                <tr>
+                    <th>年龄</th>
+                    <td th:text="${userAge}"></td>
+                </tr>
+                <tr>
+                    <th>性别</th>
+                    <td th:text="${userAge}"></td>
+                </tr>
+                <tr>
+                    <th>电话</th>
+                    <td th:text="${userPhone}"></td>
+                </tr>
+                <tr>
+                    <th>号码</th>
+                    <td th:text="${number}" style="color: orangered"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script src="/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
+
