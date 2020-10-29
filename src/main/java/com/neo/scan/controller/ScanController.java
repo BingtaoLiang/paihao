@@ -27,7 +27,7 @@ public class ScanController {
         try {
             BufferedImage QRcode = ZxingUtils.createQRImage(contents, width, height, margin);
 
-            String logoPath = "src/main/resources/static/images/logo.png";
+            String logoPath = "src/main/resources/static/images/logo.jpg";
             int logoSize = 4;
             BufferedImage qRImageWithLogo = ZxingUtils.addQRImagelogo(QRcode, width, height, logoPath, logoSize);
 
