@@ -51,11 +51,40 @@ public class UserController {
             map.put("username", username);
             map.put("userAge", userAge);
             map.put("userSex", userSex);
-
             map.put("userPhone", userPhone);
         }
 
         return "result";
+    }
+
+
+
+    //查找
+    @RequestMapping("/select")
+    public String select() {
+        return "select";
+    }
+
+    @RequestMapping("/selectUser")
+    public String selectUser(Map<String, Object> map,
+                             @RequestParam("username") String username,
+                             @RequestParam("userAge") Integer userAge) {
+        User dbUser = userMapper.select(username, userAge);
+        if (dbUser!=null){
+            Integer number = dbUser.getId();
+            String userSex = dbUser.getUserSex();
+            String userPhone = dbUser.getUserPhone();
+            map.put("number", number);
+            map.put("username", username);
+            map.put("userAge", userAge);
+            map.put("userSex", userSex);
+            map.put("userPhone", userPhone);
+            return "result";
+        }else {
+            map.put("msg","该用户还未领取号码，请先填写信息领取号码~");
+            return "userInfo";
+        }
+
     }
 
 }

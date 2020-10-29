@@ -16,4 +16,6 @@ public interface UserMapper {
     User findUser(String username,Integer userAge, String userSex);
 
     void insert(User user);
+
+    User select(String username, Integer userAge);
 }

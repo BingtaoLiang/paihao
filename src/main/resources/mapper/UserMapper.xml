@@ -14,4 +14,12 @@
           and userAge = #{userAge}
           and userSex = #{userSex}
     </select>
+
+
+    <select id="select" parameterType="com.neo.scan.model.User" resultType="com.neo.scan.model.User">
+        select *
+        from user
+        where username = #{username}
+          and userAge = #{userAge}
+    </select>
 </mapper>
