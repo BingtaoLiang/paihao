@@ -36,6 +36,7 @@ public class UserController {
             Integer number = dbUser.getId();
             map.put("number", number);
             map.put("username", username);
+            map.put("userAge", userAge);
             map.put("userSex", userSex);
             map.put("userPhone", userPhone);
         } else {
@@ -56,4 +57,5 @@ public class UserController {
 
         return "result";
     }
+
 }
