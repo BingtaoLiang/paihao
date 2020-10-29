@@ -53,7 +53,7 @@ public class ScanController {
 
 
 //填写姓名和年龄，查询自己的号码
-    @RequestMapping("/createQRcod2")
+    @RequestMapping("/createQRcode2")
     public void createQRcode2(HttpServletResponse response) {
         String contents = "http://47.95.248.109:8090/select";
         int width = 500;
