@@ -19,7 +19,9 @@ public class ScanController {
 // 和验证码的实现原理是一样，是不过换了一种验证方式。
     @RequestMapping("/createQRcode")
     public void createQRcode(HttpServletResponse response) {
-        String contents = "47.95.248.109:9090/";
+//        String contents = "http://professorsun.cn";
+//        String contents = "http://47.95.248.109:8888/";
+        String contents = "http://localhost:8888/";
         int width = 500;
         int height = 500;
         int margin = 2;
