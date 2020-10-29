@@ -21,7 +21,7 @@ public class ScanController {
     public void createQRcode(HttpServletResponse response) {
 //        String contents = "http://professorsun.cn";
 //        String contents = "http://47.95.248.109:8888/";
-        String contents = "http://localhost:8090/";
+        String contents = "http://47.95.248.109:8090/";
         int width = 500;
         int height = 500;
         int margin = 2;
