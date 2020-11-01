@@ -19,7 +19,8 @@ public class ScanController {
     //填写信息，获取号码
     @RequestMapping("/createQRcode")
     public void createQRcode(HttpServletResponse response) {
-        String contents = "http://47.95.248.109:8090/";
+//        String contents = "http://47.95.248.109:8090/";
+        String contents = "http://180.76.52.59:8090/";
         int width = 500;
         int height = 500;
         int margin = 2;

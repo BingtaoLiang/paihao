@@ -2,9 +2,10 @@
 spring:
   :datasource:
   datasource:
-    url: jdbc:mysql://47.95.248.109:3306/scan?serverTimezone=GMT%2B8
-    username: aliyun
-    password: aliyun
+#    url: jdbc:mysql://47.95.248.109:3306/scan?serverTimezone=GMT%2B8
+    url: jdbc:mysql://180.76.52.59:3306/scan?serverTimezone=GMT%2B8
+    username: scan
+    password: QQ@1607247596
     driver-class-name: com.mysql.cj.jdbc.NonRegisteringDriver
   thymeleaf:
     cache: false
