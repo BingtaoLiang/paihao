@@ -17,5 +17,5 @@ public interface UserMapper {
 
     void insert(User user);
 
-    User select(String username, Integer userAge);
+    User select(String username, Integer userAge,String userSex);
 }
