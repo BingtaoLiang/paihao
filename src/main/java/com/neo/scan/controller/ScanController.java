@@ -8,6 +8,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
 import com.neo.scan.util.ZxingUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,12 +17,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ScanController {
 
+    @Value("${server.redirect-url}")
+    private String url;
+
 
     //填写信息，获取号码
     @RequestMapping("/createQRcode")
     public void createQRcode(HttpServletResponse response) {
 //        String contents = "http://47.95.248.109:8090/";
-        String contents = "http://180.76.52.59:8090/";
+//        String contents = "http://180.76.52.59:8090/";
+        String contents= "http://"+url+"/";
         int width = 500;
         int height = 500;
         int margin = 2;
@@ -56,7 +62,10 @@ public class ScanController {
 //填写姓名和年龄，查询自己的号码
     @RequestMapping("/createQRcode2")
     public void createQRcode2(HttpServletResponse response) {
-        String contents = "http://47.95.248.109:8090/select";
+//        String contents = "http://47.95.248.109:8090/select";
+//        String contents = "http://180.76.52.59:8090/select";
+
+        String contents= "http://"+url+"/select";
         int width = 500;
         int height = 500;
         int margin = 2;
