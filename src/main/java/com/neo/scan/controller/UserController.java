@@ -73,14 +73,16 @@ public class UserController {
     @RequestMapping("/selectUser")
     public String selectUser(Map<String, Object> map,
                              @RequestParam("username") String username,
-                             @RequestParam("userAge") Integer userAge) {
-        User dbUser = userMapper.select(username, userAge);
+                             @RequestParam("userAge") Integer userAge,
+                             @RequestParam("userSex") String userSex) {
+        User dbUser = userMapper.select(username, userAge,userSex);
         if (dbUser!=null){
             Integer number = dbUser.getId();
             String userPhone = dbUser.getUserPhone();
             map.put("number", number);
             map.put("username", username);
             map.put("userAge", userAge);
+            map.put("userSex", userSex);
             map.put("userPhone", userPhone);
             return "result";
         }else {
