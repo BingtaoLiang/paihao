@@ -10,7 +10,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper {
 
-    User findUser(String username,Integer userAge, String userSex,String userPhone);
+//    User findUser(String username,Integer userAge, String userSex,String userPhone);
+    User findUser(String username,Integer userAge);
 
     void insert(User user);
 

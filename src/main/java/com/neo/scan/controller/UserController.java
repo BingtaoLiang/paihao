@@ -36,7 +36,8 @@ public class UserController {
                          @RequestParam("userAge") Integer userAge,
                          @RequestParam("userSex") String userSex,
                          @RequestParam("userPhone") String userPhone) {
-        User dbUser = userMapper.findUser(username, userAge, userSex,userPhone);
+//        User dbUser = userMapper.findUser(username, userAge, userSex,userPhone);
+        User dbUser = userMapper.findUser(username, userAge);
         if (dbUser != null) {
             Integer number = dbUser.getId();
             map.put("number", number);
