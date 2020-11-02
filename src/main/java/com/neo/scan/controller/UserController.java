@@ -40,11 +40,14 @@ public class UserController {
         User dbUser = userMapper.findUser(username, userAge);
         if (dbUser != null) {
             Integer number = dbUser.getId();
+            Integer userAge1 = dbUser.getUserAge();
+            String userSex1 = dbUser.getUserSex();
+            String userPhone1 = dbUser.getUserPhone();
             map.put("number", number);
             map.put("username", username);
-            map.put("userAge", userAge);
-            map.put("userSex", userSex);
-            map.put("userPhone", userPhone);
+            map.put("userAge", userAge1);
+            map.put("userSex", userSex1);
+            map.put("userPhone", userPhone1);
         } else {
             User user = new User();
             user.setUsername(username);
@@ -88,7 +91,11 @@ public class UserController {
             return "result";
         }else {
             map.put("msg","该用户还未领取号码，请先填写信息领取号码~");
-            return "userInfo";
+            map.put("text-align","center");
+            map.put("color1","ghostwhite");
+            map.put("color2","red");
+
+            return "register";
         }
 
     }
