@@ -20,10 +20,15 @@ public class UserController {
     private UserMapper userMapper;
 
     @RequestMapping("/")
-    public String userInfo() {
-        return "userInfo";
+    public String index() {
+        return "index";
     }
 
+    @RequestMapping("/register")
+    public String userInfo() {
+        return "register";
+
+    }
 
     @RequestMapping("/paihao")
     public String paihao(Map<String, Object> map,
@@ -31,7 +36,7 @@ public class UserController {
                          @RequestParam("userAge") Integer userAge,
                          @RequestParam("userSex") String userSex,
                          @RequestParam("userPhone") String userPhone) {
-        User dbUser = userMapper.findUser(username, userAge, userSex);
+        User dbUser = userMapper.findUser(username, userAge, userSex,userPhone);
         if (dbUser != null) {
             Integer number = dbUser.getId();
             map.put("number", number);
@@ -68,16 +73,14 @@ public class UserController {
     @RequestMapping("/selectUser")
     public String selectUser(Map<String, Object> map,
                              @RequestParam("username") String username,
-                             @RequestParam("userAge") Integer userAge,
-                             @RequestParam("userSex") String userSex) {
-        User dbUser = userMapper.select(username, userAge,userSex);
+                             @RequestParam("userAge") Integer userAge) {
+        User dbUser = userMapper.select(username, userAge);
         if (dbUser!=null){
             Integer number = dbUser.getId();
             String userPhone = dbUser.getUserPhone();
             map.put("number", number);
             map.put("username", username);
             map.put("userAge", userAge);
-            map.put("userSex", userSex);
             map.put("userPhone", userPhone);
             return "result";
         }else {

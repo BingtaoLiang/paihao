@@ -13,6 +13,8 @@
         where username = #{username}
           and userAge = #{userAge}
           and userSex = #{userSex}
+          and userPhone = #{userPhone}
+
     </select>
 
 
@@ -21,6 +23,8 @@
         from user
         where username = #{username}
           and userAge = #{userAge}
-          and userSex = #{userSex}
+
     </select>
+
+
 </mapper>

@@ -22,5 +22,5 @@ mybatis:
     map-underscore-to-camel-case: true
   mapper-locations: classpath:mapper/*.xml
 server:
-  port: 8090
-  redirect-url: 180.76.52.59:8090
+  port: 80
+  redirect-url: 180.76.52.59:80
