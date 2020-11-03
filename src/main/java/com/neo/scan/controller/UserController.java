@@ -77,7 +77,7 @@ public class UserController {
             User lastUser = userMapper.selectLastUser();        //数据库中找最后一名排号中的患者
             Integer lastUserId = 0;
             if (lastUser == null) { //如果当前数据库中没有在排号的患者，将lastUserId设为0
-                lastUserId = 0; //!!!!!!!!!!!!!!
+                lastUserId = 1;
             } else {
                 lastUserId = lastUser.getXuhao();   //否则，拿到最后一个患者的序号继续排号
                 lastUserId = lastUserId + 1;

@@ -95,4 +95,43 @@ public class ScanController {
             e.printStackTrace();
         }
     }
+
+
+    //管理页面
+    @RequestMapping("/createQRcode3")
+    public void createQRcode3(HttpServletResponse response) {
+//        String contents = "http://47.95.248.109:8090/select";
+//        String contents = "http://180.76.52.59:8090/select";
+
+        String contents= "http://"+url+"/guanli";
+        int width = 500;
+        int height = 500;
+        int margin = 2;
+
+        try {
+            BufferedImage QRcode = ZxingUtils.createQRImage(contents, width, height, margin);
+
+            String logoPath = "src/main/resources/static/images/logo.png";
+            int logoSize = 4;
+            BufferedImage qRImageWithLogo = ZxingUtils.addQRImagelogo(QRcode, width, height, logoPath, logoSize);
+
+            // 写入返回
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(qRImageWithLogo, "jpg", baos);
+
+            byte[] QRJPG = baos.toByteArray();
+            response.setHeader("Cache-Control", "no-store");
+            response.setHeader("Pragma", "no-cache");
+            response.setDateHeader("Expires", 0);
+            response.setContentType("image/jpeg");
+
+            ServletOutputStream os = response.getOutputStream();
+            os.write(QRJPG); // 自此完成一套，图片读入，写入流，转为字节数组，写入输出流
+            os.flush();
+            os.close();
+            baos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
