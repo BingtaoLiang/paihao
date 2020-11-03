@@ -22,6 +22,7 @@
         where username = #{username}
           and userAge = #{userAge}
           and userSex = #{userSex}
+          and flag = 0
     </select>
 
     <select id="findUserById" parameterType="com.neo.scan.model.User" resultType="com.neo.scan.model.User">
@@ -33,7 +34,8 @@
     <select id="findAll" parameterType="com.neo.scan.model.User" resultType="com.neo.scan.model.User">
         select *
         from user
-        where flag = 0 order by xuhao
+        where flag = 0
+        order by xuhao
     </select>
 
     <select id="countAll" resultType="java.lang.Integer">
@@ -46,7 +48,7 @@
         select *
         from user
         where xuhao != 0
-        order by id desc
+        order by xuhao desc
         limit 0,1
     </select>
 
@@ -76,7 +78,8 @@
 
     <update id="repaihao">
         update scan.user
-        set scan.user.xuhao= #{lastUserId} ,flag=0
+        set scan.user.xuhao= #{lastUserId},
+            flag=0
         where username = #{username}
           and userAge = #{userAge}
           and userSex = #{userSex};

@@ -115,7 +115,7 @@ public class UserController {
                              @RequestParam("userSex") String userSex) {
         User dbUser = userMapper.select(username, userAge, userSex);
         if (dbUser != null) {
-            Integer number = dbUser.getId();
+            Integer number = dbUser.getXuhao();
             String userPhone = dbUser.getUserPhone();
             map.put("number", number);
             map.put("username", username);
