@@ -3,6 +3,8 @@ package com.neo.scan.mapper;
 import com.neo.scan.model.User;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @Description Author neo
  * Date 2020/10/28 13:58
@@ -17,4 +19,11 @@ public interface UserMapper {
 
     User select(String username, Integer userAge,String userSex);
 
+    User findUserById(Integer id);
+
+    List<User> findAll();
+
+    Integer countAll();
+
+//    List<User> selectBySomething(UserQueryDTO userQueryDTO);
 }

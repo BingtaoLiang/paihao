@@ -24,5 +24,28 @@
           and userSex = #{userSex}
     </select>
 
+    <select id="findUserById" parameterType="com.neo.scan.model.User" resultType="com.neo.scan.model.User">
+        select *
+        from user
+        where id = #{id}
+    </select>
+
+    <select id="findAll" parameterType="com.neo.scan.model.User" resultType="com.neo.scan.model.User">
+        select *
+        from user
+    </select>
+
+    <select id="countAll" resultType="java.lang.Integer">
+        select count(*)
+        from user
+    </select>
+
+<!--    <select id="selectBySomething" parameterType="com.neo.scan.DTO.UserQueryDTO" resultType="com.neo.scan.model.User">-->
+<!--        select *-->
+<!--        from user-->
+<!--        order by user.id-->
+<!--        limit #{page},#{size}-->
+<!--    </select>-->
+
 
 </mapper>
