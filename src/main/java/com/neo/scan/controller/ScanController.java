@@ -65,7 +65,7 @@ public class ScanController {
 //        String contents = "http://47.95.248.109:8090/select";
 //        String contents = "http://180.76.52.59:8090/select";
 
-        String contents= "http://"+url+"/select";
+        String contents= "http://"+url+"/admin";
         int width = 500;
         int height = 500;
         int margin = 2;
