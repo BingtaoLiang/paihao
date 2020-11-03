@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
 <head>
-    <title>护士管理页面</title>
+    <title>管理页面</title>
     <meta name="viewport" http-equiv="Content-Type"
           content="text/html; charset=UTF-8;width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -31,9 +31,10 @@
             <a href="/list" >
                 <input value="已挂号码" class="btn btn-primary btn-block" style="width: 130px;display: inline;font-size: 20px">
             </a>
-            <a href="/jiaohao"  >
-                <input value="叫号" class="btn btn-primary btn-block" style="width: 130px;display: inline;font-size: 20px">
+            <a href="/restart"  >
+                <input value="重新排号" class="btn btn-primary btn-block" style="width: 130px;display: inline;font-size: 20px">
             </a>
+            <h4 th:text="${msg}" style="color: white"></h4>
         </div>
 
     </div>

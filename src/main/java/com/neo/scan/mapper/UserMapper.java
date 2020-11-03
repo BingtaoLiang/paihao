@@ -25,5 +25,15 @@ public interface UserMapper {
 
     Integer countAll();
 
+    User selectLastUser();
+
+    void updatePreUser(Integer preId);
+
+    User selectFirstUser();
+
+    void restart();
+
+    void repaihao(String username, Integer userAge, String userSex,Integer lastUserId);
+
 //    List<User> selectBySomething(UserQueryDTO userQueryDTO);
 }

@@ -44,10 +44,13 @@
                     <th>姓名：</th>
                 </tr>
                 <tr th:each="user:${users}">
-                    <td th:text="${user.getId()}" style="color: orangered; font-size: 25px">号码：</td>
-                    <td th:text="${user.getUsername()}">姓名：</td>
+<!--                    <td th:text="${user.getXuhao()}" style="color: orangered; font-size: 25px">号码：</td>-->
+<!--                    <td th:text="${user.getUsername()}">姓名：</td>-->
+                     <td th:text="${user ==null}? ' ':${user.getXuhao()}" style="color: orangered; font-size: 25px">号码：</td>
+                    <td th:text="${user == null}?' ': ${user.getUsername()}">姓名：</td>
                 </tr>
             </table>
+            <h3 th:text="${users == null}? ${msg}:' '" style="color: white"></h3>
         </div>
 <!--        <a th:href="@{/jiaohao(id=${user.getId()}+1)}">-->
 <!--            <input value="下一位" class="btn btn-primary btn-block" style="width: 130px;float:right;display: inline;font-size: 20px">-->

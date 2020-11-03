@@ -25,4 +25,10 @@ public class User {
     /*手机号码*/
     private String userPhone;
 
+    /*是否被叫过号*/
+    private Integer flag;
+
+    /*病人序号*/
+    private Integer xuhao;
+
 }

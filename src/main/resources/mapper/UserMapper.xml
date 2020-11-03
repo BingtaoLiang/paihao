@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neo.scan.mapper.UserMapper">
     <insert id="insert" parameterType="com.neo.scan.model.User" useGeneratedKeys="true" keyProperty="id">
-        insert into user (username, userAge, userSex, userPhone)
-        values (#{username}, #{userAge}, #{userSex}, #{userPhone})
+        insert into user (username, userAge, userSex, userPhone, scan.user.flag, xuhao)
+        values (#{username}, #{userAge}, #{userSex}, #{userPhone}, #{flag}, #{xuhao})
 
     </insert>
 
@@ -27,12 +27,13 @@
     <select id="findUserById" parameterType="com.neo.scan.model.User" resultType="com.neo.scan.model.User">
         select *
         from user
-        where id = #{id}
+        where xuhao = #{id}
     </select>
 
     <select id="findAll" parameterType="com.neo.scan.model.User" resultType="com.neo.scan.model.User">
         select *
         from user
+        where flag = 0 order by xuhao
     </select>
 
     <select id="countAll" resultType="java.lang.Integer">
@@ -40,12 +41,53 @@
         from user
     </select>
 
-<!--    <select id="selectBySomething" parameterType="com.neo.scan.DTO.UserQueryDTO" resultType="com.neo.scan.model.User">-->
-<!--        select *-->
-<!--        from user-->
-<!--        order by user.id-->
-<!--        limit #{page},#{size}-->
-<!--    </select>-->
+
+    <select id="selectLastUser" resultType="com.neo.scan.model.User">
+        select *
+        from user
+        where xuhao != 0
+        order by id desc
+        limit 0,1
+    </select>
+
+
+    <select id="selectFirstUser" resultType="com.neo.scan.model.User">
+        select *
+        from user
+        where flag = 0
+        order by xuhao
+        limit 0,1
+    </select>
+
+
+    <update id="updatePreUser" parameterType="java.lang.Integer">
+        update scan.user
+        set scan.user.flag= 1
+        where scan.user.xuhao = #{preId}
+    </update>
+
+
+    <update id="restart">
+        update scan.user
+        set scan.user.xuhao= 0
+        where flag = 1;
+    </update>
+
+
+    <update id="repaihao">
+        update scan.user
+        set scan.user.xuhao= #{lastUserId} ,flag=0
+        where username = #{username}
+          and userAge = #{userAge}
+          and userSex = #{userSex};
+    </update>
+
+    <!--    <select id="selectBySomething" parameterType="com.neo.scan.DTO.UserQueryDTO" resultType="com.neo.scan.model.User">-->
+    <!--        select *-->
+    <!--        from user-->
+    <!--        order by user.id-->
+    <!--        limit #{page},#{size}-->
+    <!--    </select>-->
 
 
 </mapper>
